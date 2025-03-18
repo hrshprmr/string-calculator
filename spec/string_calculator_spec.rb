@@ -1,6 +1,4 @@
 require './string_calculator'
-require 'pry'
-StringCalculator
 RSpec.describe StringCalculator do
   describe '.add' do
     it 'returns 0 for an empty string' do
@@ -21,6 +19,10 @@ RSpec.describe StringCalculator do
 
     it 'allows new lines as delimiters' do
       expect(StringCalculator.add("1\n2,3")).to eq(6)
+    end
+
+    it 'supports custom delimiters' do
+      expect(StringCalculator.add("//;\n1;2")).to eq(3)
     end
   end
 end
